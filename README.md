@@ -22,7 +22,6 @@ No modules.
 | Name | Type |
 |------|------|
 | [azuread_service_principal.main](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal) | resource |
-| [azuread_service_principal_password.main](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/service_principal_password) | resource |
 
 ## Inputs
 
@@ -33,19 +32,13 @@ No modules.
 | <a name="input_app_role_assignment_required"></a> [app\_role\_assignment\_required](#input\_app\_role\_assignment\_required) | Whether this service principal requires an app role assignment to a user or group before Azure AD will issue a user or access token to the application. Defaults to false. | `bool` | `false` | no |
 | <a name="input_application_id"></a> [application\_id](#input\_application\_id) | The application ID (client ID) of the application for which to create a service principal. | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | A description of the service principal provided for internal end-users. | `string` | `null` | no |
-| <a name="input_display_name"></a> [display\_name](#input\_display\_name) | A display name for the password. | `string` | `null` | no |
-| <a name="input_end_date"></a> [end\_date](#input\_end\_date) | The end date until which the password is valid, formatted as an RFC3339 date string (e.g. 2018-01-01T01:02:03Z). | `string` | `null` | no |
-| <a name="input_end_date_relative"></a> [end\_date\_relative](#input\_end\_date\_relative) | A relative duration for which the password is valid until, for example 240h (10 days) or 2400h30m. | `string` | `null` | no |
 | <a name="input_feature_tags"></a> [feature\_tags](#input\_feature\_tags) | A feature\_tags block as described below. Cannot be used together with the tags property. | `any` | `null` | no |
 | <a name="input_login_url"></a> [login\_url](#input\_login\_url) | The URL where the service provider redirects the user to Azure AD to authenticate. Azure AD uses the URL to launch the application from Microsoft 365 or the Azure AD My Apps. When blank, Azure AD performs IdP-initiated sign-on for applications configured with SAML-based single sign-on. | `string` | `null` | no |
 | <a name="input_notes"></a> [notes](#input\_notes) | A free text field to capture information about the service principal, typically used for operational purposes. | `string` | `null` | no |
 | <a name="input_notification_email_addresses"></a> [notification\_email\_addresses](#input\_notification\_email\_addresses) | A free text field to capture information about the service principal, typically used for operational purposes. | `list(string)` | `[]` | no |
 | <a name="input_owners"></a> [owners](#input\_owners) | A set of object IDs of principals that will be granted ownership of the application. Supported object types are users or service principals. | `list(string)` | `[]` | no |
 | <a name="input_preferred_single_sign_on_mode"></a> [preferred\_single\_sign\_on\_mode](#input\_preferred\_single\_sign\_on\_mode) | The single sign-on mode configured for this application. Azure AD uses the preferred single sign-on mode to launch the application from Microsoft 365 or the Azure AD My Apps. Supported values are `oidc`, `password`, `saml` or `notSupported`. Omit this property or specify a blank string to unset. | `string` | `null` | no |
-| <a name="input_rotate_when_changed"></a> [rotate\_when\_changed](#input\_rotate\_when\_changed) | A map of arbitrary key/value pairs that will force recreation of the password when they change, enabling password rotation based on external conditions such as a rotating timestamp. | `map(string)` | `null` | no |
 | <a name="input_saml_single_sign_on"></a> [saml\_single\_sign\_on](#input\_saml\_single\_sign\_on) | A saml single sign-on block | `any` | `null` | no |
-| <a name="input_service_principal_id"></a> [service\_principal\_id](#input\_service\_principal\_id) | The object ID of the service principal for which this password should be created. | `string` | n/a | yes |
-| <a name="input_start_date"></a> [start\_date](#input\_start\_date) | The start date from which the password is valid, formatted as an RFC3339 date string (e.g. 2018-01-01T01:02:03Z). If this isn't specified, the current date is used. | `string` | `null` | no |
 | <a name="input_use_existing"></a> [use\_existing](#input\_use\_existing) | When true, any existing service principal linked to the same application will be automatically imported. When false, an import error will be raised for any pre-existing service principal. | `string` | `null` | no |
 
 ## Outputs
@@ -57,7 +50,6 @@ No modules.
 | <a name="output_application_tenant_id"></a> [application\_tenant\_id](#output\_application\_tenant\_id) | The tenant ID where the associated application is registered. |
 | <a name="output_display_name"></a> [display\_name](#output\_display\_name) | The display name of the application associated with this service principal. |
 | <a name="output_homepage_url"></a> [homepage\_url](#output\_homepage\_url) | Home page or landing page of the associated application. |
-| <a name="output_key_id"></a> [key\_id](#output\_key\_id) | A UUID used to uniquely identify this password credential. |
 | <a name="output_logout_url"></a> [logout\_url](#output\_logout\_url) | The URL that will be used by Microsoft's authorization service to log out an user using OpenId Connect front-channel, back-channel or SAML logout protocols, taken from the associated application. |
 | <a name="output_oauth2_permission_scope_ids"></a> [oauth2\_permission\_scope\_ids](#output\_oauth2\_permission\_scope\_ids) | A mapping of OAuth2.0 permission scope values to scope IDs. |
 | <a name="output_oauth2_permission_scopes"></a> [oauth2\_permission\_scopes](#output\_oauth2\_permission\_scopes) | A list of OAuth 2.0 delegated permission scopes exposed by the associated application. |
@@ -67,5 +59,4 @@ No modules.
 | <a name="output_service_principal_names"></a> [service\_principal\_names](#output\_service\_principal\_names) | A list of identifier URI(s), copied over from the associated application. |
 | <a name="output_sign_in_audience"></a> [sign\_in\_audience](#output\_sign\_in\_audience) | The Microsoft account types that are supported for the associated application. Possible values include AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount or PersonalMicrosoftAccount. |
 | <a name="output_type"></a> [type](#output\_type) | Identifies whether the service principal represents an application or a managed identity. |
-| <a name="output_value"></a> [value](#output\_value) | The password for this application, which is generated by Azure Active Directory. |
 <!-- END_TF_DOCS -->
